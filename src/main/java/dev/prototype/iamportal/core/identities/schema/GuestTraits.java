@@ -1,6 +1,4 @@
 package dev.prototype.iamportal.core.identities.schema;
 
-public record GuestTraits(
-
-) implements Traits {
+public record GuestTraits(NameProperties name) implements Traits {
 }

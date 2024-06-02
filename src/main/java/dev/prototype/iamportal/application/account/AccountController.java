@@ -2,14 +2,13 @@ package dev.prototype.iamportal.application.account;
 
 import dev.prototype.iamportal.application.account.GetAccount.AccountResponse;
 import dev.prototype.iamportal.application.account.GetAccount.GetAccountQuery;
+import dev.prototype.iamportal.application.account.Subscribe.SubscribeCommand;
 import dev.prototype.iamportal.core.abstractions.Result;
-import dev.prototype.iamportal.infra.mediator.Mediator;
+import dev.prototype.iamportal.shared.mediator.Mediator;
 import dev.prototype.iamportal.shared.errors.ErrorDetail;
 import dev.prototype.iamportal.shared.exceptions.BadRequestException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -24,5 +23,18 @@ public class AccountController {
         if (result.isFailure()) throw new BadRequestException(ErrorDetail.forError(result.getError()));
 
         return result.getNonNullValue();
+    }
+
+    @PostMapping("/accounts/guest")
+    public Void createGuestAccount() {
+        return null;
+    }
+
+    @PostMapping("accounts/subscriptions")
+    public Void subscribe(@RequestBody SubscribeCommand subscribeCommand) {
+        Result<Void> result = mediator.send(subscribeCommand);
+        if (result.isFailure()) throw new BadRequestException(ErrorDetail.forError(result.getError()));
+
+        return null;
     }
 }

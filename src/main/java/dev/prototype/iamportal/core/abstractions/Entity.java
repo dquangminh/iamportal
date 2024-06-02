@@ -7,10 +7,8 @@ import java.util.List;
 public abstract class Entity<TEntityId> {
     private final List<DomainEvent> _domainEvents = new ArrayList<>();
     private TEntityId id;
-    protected Entity(TEntityId id) {
-        this.id = id;
-    }
 
+    public TEntityId getId() { return id; }
     public List<DomainEvent> getDomainEvents() {
         return Collections.unmodifiableList(_domainEvents);
     }

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record MetadataPubic(
-    String[] registrations,
-    boolean isTikier
+        SubscriptionType[] subscriptions,
+        boolean isTikier
 ) {
 }

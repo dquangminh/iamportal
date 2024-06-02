@@ -10,6 +10,15 @@ serve:
   admin:
     base_url: http://kratos:4434/
 
+session:
+  whoami:
+    tokenizer:
+      templates:
+        tiki_jwt_template:
+          jwks_url: file:///etc/config/kratos/tokenizer/id_token.jwks.json
+          claims_mapper_url: file:///etc/config/kratos/tokenizer/claims.jsonnet
+          ttl: 100m # (defaults to 10 minutes)
+
 selfservice:
   default_browser_return_url: http://127.0.0.1:4455/welcome
   allowed_return_urls:
@@ -89,10 +98,12 @@ hashers:
     cost: 8
 
 identity:
-  default_schema_id: default
+  default_schema_id: customer
   schemas:
     - id: default
       url: file:///etc/config/kratos/identity.schema.json
+    - id: customer
+      url: file:///etc/config/kratos/customer.schema.json
 
 courier:
   smtp:

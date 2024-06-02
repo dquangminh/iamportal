@@ -1,6 +1,6 @@
 package dev.prototype.iamportal.core.identities;
 
-public enum RegistrationType {
+public enum SubscriptionType {
     CUSTOMER,
     SELLER,
     SUPPLIER,

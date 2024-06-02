@@ -1,4 +1,4 @@
-package dev.prototype.iamportal.infra.mediator;
+package dev.prototype.iamportal.shared.mediator;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Handler {
-    Class<? extends RequestHandler<? extends Request,?,?>> handler();
+    Class<? extends RequestHandler<? extends Request, ?>> handler();
 }

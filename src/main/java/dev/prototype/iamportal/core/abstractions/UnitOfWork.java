@@ -4,4 +4,3 @@ public interface UnitOfWork
 {
     int saveChangesAsync();
 }
-

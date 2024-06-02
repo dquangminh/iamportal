@@ -1,4 +1,4 @@
-package dev.prototype.iamportal.infra.mediator;
+package dev.prototype.iamportal.shared.mediator;
 
 import java.io.Serializable;
 

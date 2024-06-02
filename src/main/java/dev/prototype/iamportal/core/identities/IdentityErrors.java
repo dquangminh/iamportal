@@ -7,4 +7,14 @@ public class IdentityErrors {
         10000,
         "Identity.NotEligible",
         "The identity is not eligible because the schema id is not supported now");
+    public static Error NotFound = new Error(
+            10001,
+            "Identity.NotFound",
+            "Not found identity"
+    );
+    public static Error InvalidSchema = new Error(
+            10001,
+            "Identity.InvalidSchema",
+            "Invalid schema"
+    );
 }
